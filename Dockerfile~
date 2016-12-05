@@ -20,18 +20,16 @@ RUN R -e "install.packages(c('shiny','rmarkdown' ,'plotly','ggplot2','ggthemes',
 
 
 # copy the app to the image
-RUN mkdir /root/sb
-COPY sb /root/sb
+RUN mkdir /root/kml
+COPY sb /root/kml
 
 COPY Rprofile.site /usr/lib/R/etc/
 
 RUN mkdir /srv/shiny-server
-RUN mkdir /srv/shiny-server/sb
-VOLUME /srv/shiny-server/sb
+RUN mkdir /srv/shiny-server/kml
+VOLUME /srv/shiny-server/kml
 
 EXPOSE 3838
 
-#CMD ["R", "-e ShinyBuilder::runShinyBuilder()"]
-#CMD ["R", "-e deployShinyBuilder(dir = '/srv/shiny-server/ShinyBuilder')"]
-CMD ["R", "-e shiny::runApp('/root/sb')"]
+CMD ["R", "-e shiny::runApp('/root/kml')"]
 

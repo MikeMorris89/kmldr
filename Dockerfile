@@ -16,7 +16,7 @@ RUN apt-get install -y --no-install-recommends --allow-downgrades \
 	&& rm -rf /var/lib/apt/lists/*
 
 # basic shiny functionality
-RUN R -e "install.packages(c('shiny','rmarkdown' ,'plotly','ggplot2','ggthemes','scales','dplyr','randomForest','mice','shinydashboard','rpart','reshape','htmlwidgets'),dep=T)"
+RUN R -e "install.packages(c('shiny','rmarkdown' ,'plotly','ggplot2','ggthemes','scales','dplyr','randomForest','mice','shinydashboard','rpart','reshape','htmlwidgets','rpart.plot','rattle'),dep=T)"
 
 
 # copy the app to the image
