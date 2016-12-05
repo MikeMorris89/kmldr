@@ -21,7 +21,7 @@ RUN R -e "install.packages(c('shiny','rmarkdown' ,'plotly','ggplot2','ggthemes',
 
 # copy the app to the image
 RUN mkdir /root/kml
-COPY sb /root/kml
+COPY kml /root/kml
 
 COPY Rprofile.site /usr/lib/R/etc/
 
