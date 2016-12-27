@@ -16,7 +16,9 @@ RUN apt-get install -y --no-install-recommends --allow-downgrades \
 	&& rm -rf /var/lib/apt/lists/*
 
 # basic shiny functionality
-RUN R -e "install.packages(c('shiny','rmarkdown' ,'plotly','ggplot2','ggthemes','scales','dplyr','randomForest','mice','shinydashboard','rpart','reshape','htmlwidgets','rpart.plot','rattle','RGtk2'),dep=T)"
+RUN R -e "install.packages(c('devtools','roxygen2' ,'d3heatmap' ,'shinyjs' ,'AppliedPredictiveModeling' ,'caret' ,'pROC' ,'plotly' ,'ggplot2' ,'ggthemes' ,'scales' ,'dplyr' ,'mice' ,'randomForest' ,'shinydashboard' ,'reshape' ,'rpart' ,'htmlwidgets' ,'rattle' ,'rpart.plot' ,'RGtk2' ,'R6' ,'shinyBS' ,'RDocumentation' ,'titanic' ,'logging'),dep=T)" \
+    && R -e 'devtools::install_github("mikemorris89/rmm")' \
+    && R -e 'remove.packages("devtools")'
 
 
 # copy the app to the image
