@@ -15,6 +15,13 @@ RUN apt-get install -y --no-install-recommends --allow-downgrades \
 	libcurl4-openssl-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update -qq
+
+RUN apt-get install -y wajig 
+RUN wajig update -qq
+RUN wajig install -y libgtk2.0-dev
+
+
 # basic shiny functionality
 RUN R -e "install.packages(c('devtools','roxygen2' ,'d3heatmap' ,'shinyjs' ,'AppliedPredictiveModeling' ,'caret' ,'pROC' ,'plotly' ,'ggplot2' ,'ggthemes' ,'scales' ,'dplyr' ,'mice' ,'randomForest' ,'shinydashboard' ,'reshape' ,'rpart' ,'htmlwidgets' ,'rattle' ,'rpart.plot' ,'RGtk2' ,'R6' ,'shinyBS' ,'RDocumentation' ,'titanic' ,'logging'),dep=T)" \
     && R -e 'devtools::install_github("mikemorris89/rmm")' \
