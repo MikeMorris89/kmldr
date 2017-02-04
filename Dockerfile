@@ -11,14 +11,14 @@ RUN apt-get install -y --no-install-recommends --allow-downgrades \
 	default-jdk \
 	libssl-dev \
 	libxml2-dev \
-	libcurl3=7.50.1-1 \
+	libcurl3-dev \
 	libcurl4-openssl-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update -qq
 
 RUN apt-get install -y wajig 
-RUN wajig update -qq
+RUN wajig update 
 RUN wajig install -y libgtk2.0-dev
 
 
